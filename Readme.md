@@ -4,6 +4,8 @@
 
 Sanctum EDR is an Endpoint Detection and Response proof-of-concept product I am building, that I will use to try combat modern malware techniques that I develop.
 
+I have started a blog series on Sanctum, you can check it out [on my blog here](https://fluxsec.red/sanctum-edr-intro). I'm keeping track of the progress and milestones of the project there, so please check that out!
+
 Currently in its early stages, I have a plan for the project which I will update in due course.
 
 I am electing to build this in Rust because:
