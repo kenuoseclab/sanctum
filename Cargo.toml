@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "driver",
+    "dll",
+    "telemetry", "telemtry",
+]
