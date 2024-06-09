@@ -1,5 +1,7 @@
 # Sanctum EDR
 
+<img width="1780" alt="image" src="https://raw.githubusercontent.com/0xflux/sanctum/master/resources/images/cover.webp">
+
 Sanctum EDR is an Endpoint Detection and Response proof-of-concept product I am building, that I will use to try combat modern malware techniques that I develop.
 
 Currently in its early stages, I have a plan for the project which I will update in due course.
