@@ -1,0 +1,13 @@
+[build]
+target-dir = "target"
+
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-Cpanic=abort", "-Ctarget-feature=+crt-static"]
+
+[profile.dev]
+panic = "abort"
+lto = true
+
+[profile.release]
+panic = "abort"
+lto = true

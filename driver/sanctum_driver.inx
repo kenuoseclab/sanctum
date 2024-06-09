@@ -1,0 +1,51 @@
+[Version]
+Signature="$WINDOWS NT$"
+Class=EDR
+ClassGuid={d348a4ec-cd13-493d-83a8-b25633ac90d5}
+Provider=%ProviderName%
+DriverVer=09/06/2024,0.0.1
+CatalogFile=sanctum_driver.cat
+PnpLockdown=1
+
+[DestinationDirs]
+DefaultDestDir=13
+Drivers_Dir=13
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+sanctum_driver.sys = 1,,,
+
+[Drivers_Dir]
+sanctum_driver.sys
+
+[Manufacturer]
+%StdMfg%=Standard,NT$ARCH$.10.0...16299
+
+[Standard.NT$ARCH$.10.0...16299]
+%DeviceDesc%=SanctumEDRDevice, root\SANCTUM_EDR_HW_ID
+
+[SanctumEDRDevice.NT$ARCH$]
+CopyFiles=Drivers_Dir
+
+; ================= Service installation =================
+[SanctumEDRDevice.NT$ARCH$.Services]
+AddService = SanctumEDRService, %SPSVCINST_ASSOCSERVICE%, Sanctum_EDR_Service_Install
+
+[Sanctum_EDR_Service_Install]
+DisplayName    = %ServiceDesc%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\sanctum_driver.sys
+
+; ================= Strings =================
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ProviderName           = "Sanctum"
+StdMfg                 = "(Standard system devices)"
+DiskName               = "Installation Disk"
+DeviceDesc             = "Sanctum EDR Rust Driver"
+ServiceDesc            = "Sanctum EDR Rust Service"
+ClassName              = "EDR Device"

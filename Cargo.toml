@@ -2,5 +2,6 @@
 members = [
     "driver",
     "dll",
-    "telemetry", "telemtry",
+    "telemetry",
 ]
+resolver = "2"
