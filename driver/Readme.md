@@ -19,10 +19,10 @@ To deploy it to the testing machine:
 1) Run `cargo make` as above
 2) Copy the .sys file into the VM to a place of your choosing
 3) In an elevated powershell session, run: 
-   1) sc.exe stop Sanctum
-   2) sc.exe delete Sanctum
-   3) sc.exe create Sanctum binPath= "C:\Drivers\sanctum_driver_package\sanctum_driver.sys" type= kernel
-   4) sc.exe start Sanctum
+   1) `sc.exe stop Sanctum`
+   2) `sc.exe delete Sanctum`
+   3) `sc.exe create Sanctum binPath= "C:\Drivers\sanctum_driver_package\sanctum_driver.sys" type= kernel`
+   4) `sc.exe start Sanctum`
 
 ### Debugging:
 
