@@ -18,11 +18,8 @@ lto = true # optional setting to enable Link Time Optimizations
 panic = "abort"
 lto = true # optional setting to enable Link Time Optimizations
 
-[build]
-target-dir = "target"
-
 [dependencies]
-wdk = "0.2.0"
+wdk = { version="0.2.0", features=[] }
 wdk-alloc = "0.2.0"
 wdk-panic = "0.2.0"
 wdk-sys = "0.2.0"

@@ -1,5 +1,7 @@
 #![no_std]
 
+use wdk_sys::ntddk::DbgPrint;
+
 use wdk_sys::{DRIVER_OBJECT, NTSTATUS, PCUNICODE_STRING};
 
 #[cfg(not(test))]
@@ -17,5 +19,7 @@ pub unsafe extern "system" fn driver_entry(
     driver: &mut DRIVER_OBJECT,
     registry_path: PCUNICODE_STRING,
 ) -> NTSTATUS {
+    DbgPrint("Sanctum driver starting..".as_ptr() as *const i8);
+
     0
 }
