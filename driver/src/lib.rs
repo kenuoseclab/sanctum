@@ -1,5 +1,10 @@
 #![no_std]
 
+extern crate alloc;
+pub mod io;
+pub mod error;
+
+use alloc::ffi::CString;
 use wdk_sys::ntddk::DbgPrint;
 
 use wdk_sys::{DRIVER_OBJECT, NTSTATUS, PCUNICODE_STRING};
@@ -17,9 +22,20 @@ static GLOBAL_ALLOCATOR: WDKAllocator = WDKAllocator;
 #[export_name = "DriverEntry"]
 pub unsafe extern "system" fn driver_entry(
     driver: &mut DRIVER_OBJECT,
-    registry_path: PCUNICODE_STRING,
+    _registry_path: PCUNICODE_STRING,
 ) -> NTSTATUS {
-    DbgPrint("Sanctum driver starting..".as_ptr() as *const i8);
+    welcome_msg();
 
+    driver.DriverUnload = Some(driver_exit);
+    
     0
+}
+
+extern "C" fn driver_exit(_driver: *mut DRIVER_OBJECT) {
+    println!("[i] Sanctum driver cleaning up...");
+}
+
+fn welcome_msg() {
+    let msg = "[i] Starting Sanctum driver...";
+    println!("{}", msg);
 }

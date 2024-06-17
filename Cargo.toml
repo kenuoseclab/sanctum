@@ -1,7 +1,0 @@
-[workspace]
-members = [
-    "driver",
-    "dll",
-    "telemetry",
-]
-resolver = "2"

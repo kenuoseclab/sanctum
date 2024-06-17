@@ -12,14 +12,14 @@ test = false
 
 [profile.dev]
 panic = "abort"
-lto = true # optional setting to enable Link Time Optimizations
+lto = true
 
 [profile.release]
 panic = "abort"
-lto = true # optional setting to enable Link Time Optimizations
+lto = true
 
 [dependencies]
-wdk = { version="0.2.0", features=[] }
+wdk = { version = "0.2.0", features = [] }
 wdk-alloc = "0.2.0"
 wdk-panic = "0.2.0"
 wdk-sys = "0.2.0"
