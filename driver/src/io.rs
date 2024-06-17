@@ -2,7 +2,7 @@ use wdk_sys::ntddk::DbgPrint;
 
 #[doc(hidden)]
 pub fn _print(args: core::fmt::Arguments) {
-    let s = alloc::format!("{}\0", args);
+    let s = alloc::format!("[sanctum-driver]: {}\0", args);
 
     // print the string
     unsafe { DbgPrint(s.as_ptr() as _) };
